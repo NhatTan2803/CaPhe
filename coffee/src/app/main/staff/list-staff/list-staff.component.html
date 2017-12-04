@@ -1,0 +1,78 @@
+<div class="app-content-body ">
+  <div class="hbox hbox-auto-xs hbox-auto-sm">
+    <!-- main -->
+    <div class="col">
+      <!-- main header -->
+      <div class="bg-light lter b-b wrapper-md">
+        <div class="row">
+          <div class="col-sm-12 col-xs-12">
+            <h1 class="m-n font-thin h3 text-black">Danh sách các quán</h1>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper-md">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-default">
+              <div>
+                <div class="panel-heading">
+                  <div class="panel-body">
+                    <table class="table table-striped b-light table-bordered table-hover table-text-center">
+                      <thead>
+                        <tr>
+                          <th>STT</th>
+                          <th>Ảnh</th>
+                          <th>Tên</th>
+                          <th>Vị Trí</th>
+                          <th>SĐT</th>
+                          <th>Ngày Vô</th>
+                          <th>Email</th>
+                          <th style="width:120px">Công Cụ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let st of list_staff let i = index">
+                          <td>{{i+1}}</td>
+                          <img [src]="folder_avatar + st.user_avatar" width="50" height="50">
+                          <td>{{st.user_name}}</td>
+                          <td>{{st.position_name}}</td>
+                          <td>{{st.user_phone}}</td>
+                          <td>{{st.createdAt| date:'dd/MM/yyyy'}}</td>
+                          <td>{{st.user_email}}</td>
+                          <td>
+                            <!-- <button class="btn btn-xs btn-danger">Xóa</button> -->
+                            <button (click)="selectStaff(st)" class="btn btn-xs btn-info" data-toggle="modal" data-target="#staffModal">Xem </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / main -->
+  </div>
+  <!-- Modal -->
+  <div id="staffModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+       <!-- Modal content  -->
+              <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
