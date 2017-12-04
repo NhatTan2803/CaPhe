@@ -3,3 +3,4 @@ git status (kiem tra theo doi xem co file nao chua duoc untracked)
 git add * (them tat ca file)
 git commit -m ""(xac nhan no o local vs chu thich)
 git push (dong bo no len github)
+co chut thay doi
