@@ -50,7 +50,7 @@ export class ListDrinkComponent implements OnInit {
       }
       if (res.status == 'success') {
         this.list_drink = res.drinks;
-
+        console.log(this.list_drink);
         return;
       }
     }, error => {

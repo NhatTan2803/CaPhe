@@ -21,6 +21,7 @@ export class AddBossComponent implements OnInit {
   public boss_address: string = '';
   public boss_permission: string = 'boss';
   public boss_active: string
+  public boss_Idcard: string = ''
 
   public list_shop: Array<any> = []
   constructor(
@@ -87,8 +88,14 @@ export class AddBossComponent implements OnInit {
       $('#boss-address').focus();
       return;
     }
+    if (this.boss_Idcard === '') {
+      toastr.warning('Bạn chưa nhập CMND');
+      $('#boss-address').focus();
+      return;
+    }
     var data = JSON.stringify({
-      boss_name: this.boss_name,
+      boss_Idcard: this.boss_Idcard,
+        boss_name: this.boss_name,
       boss_shop_id: this.boss_shop,
       boss_email: this.boss_email,
       boss_password: this.boss_password,
@@ -116,7 +123,10 @@ export class AddBossComponent implements OnInit {
         this.boss_avatar = '';
         $('#boss-avatar').val('');
         this.boss_shop = undefined;
+        this.boss_sex = undefined;
         $('#boss-address').val('');
+        $('#boss-password').val('');
+        $('#boss-Idcard').val('');
         return;
       }
     }, error => {

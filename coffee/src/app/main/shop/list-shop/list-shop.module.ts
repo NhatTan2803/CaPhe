@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ListShopComponent } from './list-shop.component';
 import {Routes,RouterModule} from '@angular/router';
 import {ListShopService} from './list-shop.service';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import {AddShopService} from '../add-shop/add-shop.service'
 const routes: Routes =[
   {path:'',component:ListShopComponent}
 ]
@@ -13,7 +14,7 @@ const routes: Routes =[
     FormsModule,
     RouterModule.forChild(routes),
   ],
-  providers:[ListShopService],
+  providers:[ListShopService,AddShopService],
   declarations: [ListShopComponent]
 })
 export class ListShopModule { }

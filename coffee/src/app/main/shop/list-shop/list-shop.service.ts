@@ -21,4 +21,10 @@ export class ListShopService {
   getListShop(){
     return this._http.get(CONFIG.BASE_API +'/shops/get-list',{headers: this.createHeaders()}).map(res=>res.json());
   }
+  getProfileShop(){
+    return this._http.get(CONFIG.BASE_API +'')
+  }
+  updateShop(dataShop: Object){
+    return this._http.put(CONFIG.BASE_API + '/shops/update',dataShop,{headers: this.createHeaders()}).map(res=>res.json())
+  }
 }

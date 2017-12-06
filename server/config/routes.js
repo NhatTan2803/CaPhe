@@ -34,7 +34,7 @@ module.exports.routes = {
   // AdminController
   'POST /shops/create': 'AdminController.shop_create',
   'PUT /shops/update': 'AdminController.shop_update',
-  'GET /shops/get': 'AdminController.shop_info',
+  'POST /shops/get': 'AdminController.shop_info',
   'GET /shops/get-list': 'AdminController.shop_list',
   'GET /shops/get-list-name': 'AdminController.shop_list_name',// lấy danh sách khong kèm theo tên hệ thống
   'DELETE /shops/del': 'AdminController.shop_del',
@@ -42,6 +42,9 @@ module.exports.routes = {
   'GET /users/listaccount': 'AdminController.all_account',
   'POST /shop/upload-imgshop': 'AdminController.shop_upload_avatar',
   'POST /shop/upload-imgBoss': 'AdminController.Boss_upload_avatar',
+  'PUT /user/change-pass': 'AdminController.User_change_password',
+  'PUT /user/update-profileBoss':'AdminController.User_update',
+  
 
   //SystemController
   'GET /systems/listsystem': 'SystemController.system_list',

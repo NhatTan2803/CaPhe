@@ -16,7 +16,13 @@ export class AccountService {
     headers.append('token', this._tokenService.getToken(CONFIG.TOKEN));
     return headers;
   }
-  getAccount(){
-    return this._http.get(CONFIG.BASE_API + '/users/listaccount',{headers:this.createHeaders()}).map(res=>res.json());
+  getAccount() {
+    return this._http.get(CONFIG.BASE_API + '/users/listaccount', { headers: this.createHeaders() }).map(res => res.json());
+  }
+  changPassword(newPassword: Object) {
+    return this._http.put(CONFIG.BASE_API + '/user/change-pass', newPassword, { headers: this.createHeaders() }).map(res => res.json());
+  }
+  updateProfile(newProfile: Object) {
+    return this._http.put(CONFIG.BASE_API + '/user/update-profileBoss', newProfile, { headers: this.createHeaders() }).map(res => res.json())
   }
 }
