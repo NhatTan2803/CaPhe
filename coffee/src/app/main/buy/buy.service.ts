@@ -3,17 +3,19 @@ import 'rxjs/add/operator/map';
 import { Http, Headers } from '@angular/http';
 import { CONFIG } from '../../core/app.config';
 import {MainService} from '../main.service';
+import {TokenService} from '../../core/token.service'
 @Injectable()
 export class BuyService {
 
   constructor(
     private _http: Http,
+    private _tokenService:TokenService,
     private _mainService:MainService
   ) { }
   private createHeaders() {
     let headers = new Headers();
-    headers.append('Content-type', 'application/json');
-    headers.append('token', CONFIG.TOKEN);
+    headers.append('Content-Type', 'application/json');
+    headers.append('token',this._tokenService.getToken(CONFIG.TOKEN));
     return headers
   }
   getDrinks(data:Object) {

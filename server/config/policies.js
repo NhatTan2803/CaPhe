@@ -30,7 +30,35 @@ module.exports.policies = {
   'UsersController':{
     '*': 'auth',
     'user_login': true,
-  }
+  },
+  'AdminController':{
+    '*': 'auth',
+  },
+  'BossController':{
+    '*':'auth'
+  },
+  'BillsContronller':{
+    '*':'auth'
+  },
+  'BossController':{
+    '*':'auth'
+  },
+  'DetailControoler':{
+    '*':'auth'
+  },
+  'DrinksController':{
+    '*': 'auth'
+  },
+  'PositionController':{
+    '*':'auth'
+  },
+  'StaffController':{
+    '*':'auth'
+  },
+  'SystemController':{
+    '*':'auth'
+  },
+
 
   /***************************************************************************
   *                                                                          *

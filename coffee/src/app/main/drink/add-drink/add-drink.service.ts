@@ -16,8 +16,8 @@ export class AddDrinkService {
   ) { }
   private createHeaders() {
     let headers = new Headers();
-    headers.append('Content-type', 'application/json');
-    headers.append('token', CONFIG.TOKEN);
+    headers.append('Content-Type', 'application/json');
+    headers.append('token', this._tokenService.getToken(CONFIG.TOKEN));
     return headers
   }
   addDrink(data: Object) {

@@ -21,6 +21,13 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.checkedToken();
+  }
+  checkedToken() {
+    if (this._tokenService.checkToken(CONFIG.TOKEN) == true) {
+      this._router.navigate(['main']);
+      return;
+    }
   }
   login() {
     if (this.email === '') {

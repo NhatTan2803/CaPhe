@@ -4,18 +4,19 @@ import { MainComponent } from './main.component';
 import { Routes, RouterModule } from '@angular/router';
 import { Http, HttpModule } from '@angular/http';
 import { MainService } from './main.service';
-import { TokenService } from '../core/token.service'
+import { TokenService } from '../core/token.service';
+import { Auth } from '../core/app.auth'
 const routes: Routes = [
   {
     path: '', component: MainComponent
     , children: [
-      { path: 'account', loadChildren: './account/account.module#AccountModule' },
-      { path: 'shop', loadChildren: './shop/shop.module#ShopModule' },
-      { path: 'system', loadChildren: './system/system.module#SystemModule' },
-      { path: 'buy', loadChildren: './buy/buy.module#BuyModule' },
-      { path: 'drink', loadChildren: './drink/drink.module#DrinkModule' },
-      { path: 'position', loadChildren: './position/position.module#PositionModule' },
-      { path: 'staff', loadChildren: './staff/staff.module#StaffModule' },
+      { path: 'account', loadChildren: './account/account.module#AccountModule',canActivate:[Auth] },
+      { path: 'shop', loadChildren: './shop/shop.module#ShopModule',canActivate:[Auth] },
+      { path: 'system', loadChildren: './system/system.module#SystemModule',canActivate:[Auth] },
+      { path: 'buy', loadChildren: './buy/buy.module#BuyModule',canActivate:[Auth] },
+      { path: 'drink', loadChildren: './drink/drink.module#DrinkModule',canActivate:[Auth] },
+      { path: 'position', loadChildren: './position/position.module#PositionModule',canActivate:[Auth] },
+      { path: 'staff', loadChildren: './staff/staff.module#StaffModule',canActivate:[Auth] },
     ]
   }
 ]
@@ -25,7 +26,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forChild(routes)
   ],
-  providers: [MainService, TokenService],
+  providers: [MainService, TokenService, Auth],
   declarations: [MainComponent]
 })
 export class MainModule { }

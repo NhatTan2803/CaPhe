@@ -9,6 +9,7 @@ var bcrypt = require('bcryptjs');
 var jwt = require('../services/jsonwebtoken');
 module.exports = {
     user_login: function (req, res) {
+        
         var user_email = req.param('user_email')
         user_password = req.param('user_password');
         if (!user_email || user_email === '') {
