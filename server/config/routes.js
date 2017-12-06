@@ -43,8 +43,8 @@ module.exports.routes = {
   'POST /shop/upload-imgshop': 'AdminController.shop_upload_avatar',
   'POST /shop/upload-imgBoss': 'AdminController.Boss_upload_avatar',
   'PUT /user/change-pass': 'AdminController.User_change_password',
-  'PUT /user/update-profileBoss':'AdminController.User_update',
-  
+  'PUT /user/update-profileBoss': 'AdminController.User_update',
+
 
   //SystemController
   'GET /systems/listsystem': 'SystemController.system_list',
@@ -61,8 +61,9 @@ module.exports.routes = {
   'POST /boss/upload-imgStaff': 'BossController.Staff_upload_avatar',
   'POST /boss/upload-imgDrink': 'BossController.Drink_upload_avatar',
   'POST /boss/get-listStaff': 'BossController.user_list_staff',
-  
-  
+  'PUT /boss/update-staff': 'BossController.user_staff_update',
+
+
   // 'GET /systems/get': 'UserController.system_info',
   // 'DELETE /systems/del': 'UserController.system_del',
 
@@ -73,6 +74,7 @@ module.exports.routes = {
   //Drinks Contronller
   'POST /drinks/create': 'DrinksController.Drinks_create',
   'POST /drinks/get': 'DrinksController.Drinks_get',
+  'PUT /drinks/update-drink':'DrinksController.Drinks_update',
   //Type_Drinks Contronller
   'POST /type-drinks/create': 'Type_drinksController.TypeDrinks_create',
   'GET /type-drinks/get': 'Type_drinksController.TypeDrinks_get',

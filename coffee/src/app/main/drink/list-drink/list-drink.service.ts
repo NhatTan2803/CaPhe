@@ -22,4 +22,7 @@ export class ListDrinkService {
   getDrink(data: Object) {
     return this._http.post(CONFIG.BASE_API + '/drinks/get', data, { headers: this.createHeaders() }).map(res => res.json());
   }
+  updateDrink(drink: Object) {
+    return this._http.put(CONFIG.BASE_API + '/drinks/update-drink', drink, { headers: this.createHeaders() }).map(res => res.json())
+  }
 }

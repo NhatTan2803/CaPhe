@@ -118,7 +118,7 @@ module.exports = {
     },
     user_list_staff: function (req, res) {
         var idShop = req.param('idShop');
-        var sql = 'SELECT users.user_avatar,users.user_name ,users.user_phone,users.createdAt,users.user_email,positions.position_name from users LEFT JOIN positions on users.user_position_id = positions.position_id WHERE users.user_shop_id =' + idShop + ' and users.user_permission ="staff"'
+        var sql = 'SELECT users.user_Idcard,users.user_id,users.user_address,users.user_active,users.user_sex,users.user_position_id ,users.user_avatar,users.user_name ,users.user_phone,users.createdAt,users.user_email,positions.position_name from users LEFT JOIN positions on users.user_position_id = positions.position_id WHERE users.user_shop_id =' + idShop + ' and users.user_permission ="staff"'
         Shops.query(sql, function (err, result) {
             if (err) { return console.log(err) }
             if (result) {
@@ -130,6 +130,41 @@ module.exports = {
             }
         })
 
+    },
+    user_staff_update: function (req, res) {
+        var user_name = req.param('staff_name'),
+            user_id = req.param('staff_id'),
+            user_email = req.param('staff_email'),
+            user_Idcard = req.param('staff_Idcard'),
+            user_sex = req.param('staff_sex'),
+            user_position_id = req.param('staff_position_id'),
+            user_phone = req.param('staff_phone'),
+            user_address = req.param('staff_address'),
+            user_avatar = req.param('staff_avatar'),
+            user_active = req.param('staff_active');
+            console.log(user_position_id);
+            
+        Users.update({ user_id }, {
+            user_name,
+            user_id,
+            user_email,
+            user_Idcard,
+            user_sex,
+            user_position_id,
+            user_phone,
+            user_avatar,
+            user_address,
+            user_active
+        }).exec(function (err, updated) {
+            if (err) { console.log(err) }
+            if (updated) {
+                return res.json({
+                    status: 'success',
+                    message: 'Cập nhật thành công'
+                })
+
+            }
+        })
     },
     user_profile_shop: function (req, res) {
         var shop_id = req.param('shop_id');
@@ -173,6 +208,7 @@ module.exports = {
             }
         });
     },
+    
 
 };
 

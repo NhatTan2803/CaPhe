@@ -21,4 +21,8 @@ export class ListStaffService {
   getStaff(idShop: Object) {
     return this._http.post(CONFIG.BASE_API + '/boss/get-listStaff', idShop, { headers: this.createHeaders() }).map(res => res.json());
   }
+  updateStaff(profileStaff: Object){
+    return this._http.put(CONFIG.BASE_API + '/boss/update-staff', profileStaff, { headers: this.createHeaders() }).map(res => res.json());
+    
+  }
 }

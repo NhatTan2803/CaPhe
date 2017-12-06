@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ListStaffComponent } from './list-staff.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ListStaffService } from './list-staff.service';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { PositionService } from '../../position/position.service'
+
 const routes: Routes = [
   { path: '', component: ListStaffComponent }
 ]
@@ -13,7 +15,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes),
   ],
-  providers: [ListStaffService],
+  providers: [ListStaffService, PositionService],
   declarations: [ListStaffComponent]
 })
 export class ListStaffModule { }

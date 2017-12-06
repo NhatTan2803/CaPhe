@@ -117,7 +117,8 @@ export class AccountComponent implements OnInit {
       this.boss_phone = account['user_phone'],
       this.boss_address = account['user_address'],
       this.boss_active = account['user_active'],
-      this.boss_shop = account['user_shop_id']
+      //this.boss_shop = account['user_shop_id']
+     
       this._listshopService.getListShop().subscribe(res => {
         if (res.status == 'error') {
           console.log('error')
