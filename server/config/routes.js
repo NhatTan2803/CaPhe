@@ -62,6 +62,9 @@ module.exports.routes = {
   'POST /boss/upload-imgDrink': 'BossController.Drink_upload_avatar',
   'POST /boss/get-listStaff': 'BossController.user_list_staff',
   'PUT /boss/update-staff': 'BossController.user_staff_update',
+  'POST /boss/statistic-day':'BossController.Bill_statistic_day',
+  'POST /boss/statistic-weekend':'BossController.Bill_statistic_weekend',
+  
 
 
   // 'GET /systems/get': 'UserController.system_info',
