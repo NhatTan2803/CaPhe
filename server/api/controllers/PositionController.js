@@ -17,7 +17,7 @@ module.exports = {
             })
         }
         Positions.create({ position_name,position_shop_id }).exec(function (err, created) {
-            if (err) { return console.log('error') }
+            if (err) { return console.log(err) }
             if (created) {
                 return res.json({
                     status: 'success',

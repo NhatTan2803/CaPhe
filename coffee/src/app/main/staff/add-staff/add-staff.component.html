@@ -17,12 +17,12 @@
               <div class="panel-heading font-bold">Ảnh Chủ Quán</div>
               <div class="panel-body">
                 <div class="staff-avatar" style="display: block; text-align: center;">
-                  <img *ngIf="staff_avatar === ''" src="https://i.imgur.com/jNNT4LE.jpg" width="120" height="150" />
-                  <img *ngIf="staff_avatar != ''" [src]="folder_avatar + staff_avatar" width="120" height="150" />
+                  <img *ngIf="staff_avatar === ''" src="https://i.imgur.com/jNNT4LE.jpg" style="width: 100%" />
+                  <img *ngIf="staff_avatar != ''" [src]="folder_avatar + staff_avatar" style="width: 100%" />
                   <label class="btn btn-default btn-file" style="margin-top: 17px">
-                        Chọn ảnh 
-                        <input id="staff-avatar" (change)="uploadImg($event)" type="file" style="display: none;" />
-                      </label>
+                    Chọn ảnh
+                    <input id="staff-avatar" (change)="uploadImg($event)" type="file" style="display: none;" />
+                  </label>
                 </div>
               </div>
             </div>
@@ -103,7 +103,7 @@
                       </select>
                     </div>
                   </div>
-                  
+
                   <!-- <button type="button" (click)="addRoom()" class="btn btn-sm btn-primary">Thêm</button> -->
                 </form>
               </div>

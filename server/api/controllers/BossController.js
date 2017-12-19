@@ -46,30 +46,14 @@ module.exports = {
                 message: 'Bạn chưa nhập tên'
             });
         }
-        if (!user_birthday || user_birthday === '') {
-            return res.json({
-                status: 'error',
-                message: 'Bạn chưa nhập ngày sinh'
-            });
-        }
-        if (!user_sex || user_sex === '') {
-            return res.json({
-                status: 'error',
-                message: 'Bạn chưa chọn giới tính'
-            });
-        }
+        
         if (!user_Idcard || user_Idcard === '') {
             return res.json({
                 status: 'error',
                 message: 'Ban chua nhap CMND'
             });
         }
-        if (!user_position_id || user_position_id === '') {
-            return res.json({
-                status: 'error',
-                message: 'Ban chua chọn vị trí của nhân viên'
-            });
-        }
+        
         console.log('Chưa format: ' + user_birthday);
 
         let i = user_birthday.split('/')[2] + "-" + user_birthday.split('/')[1] + "-" + user_birthday.split('/')[0];// ('16','10','2017')
