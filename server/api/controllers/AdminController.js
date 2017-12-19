@@ -5,6 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 const moment = require('moment');
+var bcrypt = require('bcryptjs');
 module.exports = {
     //Tao shop
     shop_create: function (req, res) {
@@ -468,15 +469,33 @@ module.exports = {
     // doi passworD cua chu quan
     User_change_password: function (req, res) {
         var user_password = req.param('boss_password')
-        user_id = req.param('user_id')
-        Users.update({ user_id: user_id }, { user_password: user_password }).exec(function (err, updated) {
-            if (err) { return console.log('Lỗi cập nhật mật khẩu') }
-            if (updated) {
-                return res.json({
-                    status: 'success',
-                    message: 'Cập nhật thành công'
-                })
-            }
+        console.log(user_password);
+        
+        user_id = req.param('boss_id')
+        console.log(user_id);
+        
+        bcrypt.genSalt(10,function(err,salt){
+            bcrypt.hash(user_password,salt,function(err,hash){
+                if(err)
+                {
+                    return console.log(err);
+                }
+                if(hash)
+                {
+                    user_password = hash;
+                    console.log(user_password);
+                    
+                    Users.update({ user_id: user_id }, { user_password: user_password }).exec(function (err, updated) {
+                        if (err) { return console.log('Lỗi cập nhật mật khẩu') }
+                        if (updated) {
+                            return res.json({
+                                status: 'success',
+                                message: 'Cập nhật thành công'
+                            })
+                        }
+                    })
+                }
+            })
         })
     },
     // cap nhat thong tin tai khoản cua chu quan
