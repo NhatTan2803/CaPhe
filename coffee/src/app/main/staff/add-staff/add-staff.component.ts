@@ -98,11 +98,7 @@ export class AddStaffComponent implements OnInit {
       $('#staff-name').focus();
       return;
     }
-    if (this.staff_phone === '') {
-      toastr.warning('Bạn chưa nhập số điện thoại');
-      $('#staff-phone').focus();
-      return;
-    }
+    
     if (this.staff_email === '') {
       toastr.warning('Bạn chưa nhập email');
       $('#staff-email').focus();
@@ -113,11 +109,7 @@ export class AddStaffComponent implements OnInit {
       $('#staff-Idcard').focus();
       return;
     }
-    if (!this.staff_position) {
-      toastr.warning('Bạn chưa chọn vị trí');
-      $('#staff-Idcard').focus();
-      return;
-    }
+    
     var email = this.staff_email, atpos = email.indexOf("@"), dotpos = email.lastIndexOf(".");
     if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
       toastr.warning('Email không hợp lệ');
@@ -134,11 +126,7 @@ export class AddStaffComponent implements OnInit {
       $('#staff-password').focus();
       return;
     }
-    if (this.staff_address === '') {
-      toastr.warning('Bạn chưa nhập địa chỉ');
-      $('#staff-address').focus();
-      return;
-    }
+    
     var data = JSON.stringify({
       staff_name: this.staff_name,
       staff_shop_id: this.staff_shop_id,

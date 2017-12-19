@@ -18,7 +18,7 @@ module.exports = {
     },
     position_name:{
       type:'string',
-      unique: true,
+      
     },
   
   }

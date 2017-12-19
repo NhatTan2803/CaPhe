@@ -74,8 +74,8 @@
                 <div class="panel-heading font-bold">Ảnh Quán</div>
                 <div class="panel-body">
                   <div class="staff-avatar" style="display: block; text-align: center;">
-                    <img *ngIf="shop_avatar ==null" src="http://simpleicon.com/wp-content/uploads/shop-3.png" width="120" height="150" />
-                    <img *ngIf="shop_avatar !=null" [src]="folder_avatar + shop_avatar" width="120" height="150" />
+                    <img *ngIf="shop_avatar ==null" src="http://simpleicon.com/wp-content/uploads/shop-3.png" style="width: 100%" />
+                    <img *ngIf="shop_avatar !=null" [src]="folder_avatar + shop_avatar" style="width: 100%" />
                     <label class="btn btn-default btn-file" style="margin-top: 17px">
                       Chọn ảnh
                       <input id="shop-avatar" (change)="uploadImg($event)" type="file" style="display: none;" />

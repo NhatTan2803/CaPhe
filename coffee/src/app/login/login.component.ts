@@ -21,14 +21,14 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.checkedToken();
+    // this.checkedToken();
   }
-  checkedToken() {
-    if (this._tokenService.checkToken(CONFIG.TOKEN) == true) {
-      this._router.navigate(['main']);
-      return;
-    }
-  }
+  // checkedToken() {
+  //   if (this._tokenService.checkToken(CONFIG.TOKEN) == true) {
+  //     this._router.navigate(['main']);
+  //     return;
+  //   }
+  // }
   login() {
     if (this.email === '') {
       toastr.warning('Ban Chua Nhap Email', 'Thong Bao');
@@ -51,11 +51,17 @@ export class LoginComponent implements OnInit {
         return;
       }
       if (res.status == 'success') {
-
-        toastr.success(res.message);
-        console.log(res.user['user_name']);
-        this._tokenService.setToken(CONFIG.TOKEN, res.token);
-        this._router.navigate(['main']);
+        if(res.user['user_active']=='on')
+        {
+          toastr.success(res.message);
+          console.log(res.user['user_name']);
+          this._tokenService.setToken(CONFIG.TOKEN, res.token);
+          this._router.navigate(['main']);
+        }
+        else
+        {
+          toastr.warning('Tài khoản bị dừng kích hoạt');
+        }
       }
     }, error => {
       console.log(error);

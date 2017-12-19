@@ -17,12 +17,12 @@
               <div class="panel-heading font-bold">Ảnh Chủ Quán</div>
               <div class="panel-body">
                 <div class="boss-avatar" style="display: block; text-align: center;">
-                  <img *ngIf="boss_avatar === ''" src="https://i.imgur.com/jNNT4LE.jpg" width="120" height="150" />
-                  <img *ngIf="boss_avatar != ''" [src]="folder_avatar + boss_avatar" width="120" height="150" />
+                  <img *ngIf="boss_avatar === ''" src="https://i.imgur.com/jNNT4LE.jpg" style="width: 100%" />
+                  <img *ngIf="boss_avatar != ''" [src]="folder_avatar + boss_avatar" style="width: 100%" />
                   <label class="btn btn-default btn-file" style="margin-top: 17px">
-                        Chọn ảnh 
-                        <input id="boss-avatar" (change)="uploadImg($event)" type="file" style="display: none;" />
-                      </label>
+                    Chọn ảnh
+                    <input id="boss-avatar" (change)="uploadImg($event)" type="file" style="display: none;" />
+                  </label>
                 </div>
               </div>
             </div>
@@ -51,11 +51,11 @@
                     </div>
                   </div>
                   <div class="col-sm-3">
-                      <div class="form-group">
-                        <label>CMND</label>
-                        <input id="boss-Idcard" type="text" [(ngModel)]="boss_Idcard" name="boss_Idcard" class="form-control" placeholder="Nhập CMND">
-                      </div>
+                    <div class="form-group">
+                      <label>CMND</label>
+                      <input id="boss-Idcard" type="text" [(ngModel)]="boss_Idcard" name="boss_Idcard" class="form-control" placeholder="Nhập CMND">
                     </div>
+                  </div>
                   <div class="col-sm-3">
                     <div class="form-group">
                       <label>Chủ Quán</label>
@@ -103,7 +103,7 @@
                       </select>
                     </div>
                   </div>
-                  
+
                   <!-- <button type="button" (click)="addRoom()" class="btn btn-sm btn-primary">Thêm</button> -->
                 </form>
               </div>
