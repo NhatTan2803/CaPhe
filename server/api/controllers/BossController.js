@@ -226,6 +226,24 @@ module.exports = {
                 })
             }
         })
-    }
+    },
+    Bill_statistic_month: function (req, res) {
+        
+                var Idshop = req.param('Idshop');
+        
+                var sql = "SELECT SUM(bills.bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt < date_add(curdate(),INTERVAL 1 Day) and bills.createdAt > date_sub(curdate(),INTERVAL 30 day) and users.user_shop_id =" + Idshop;
+                console.log(sql);
+        
+                Bills.query(sql, function (err, result) {
+                    if (err) { return console.log(err) }
+                    if (result) {
+                        return res.json({
+                            status: 'success',
+                            message: 'Thành công',
+                            money: result,
+                        })
+                    }
+                })
+            }
 };
 
