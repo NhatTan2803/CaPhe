@@ -17,6 +17,7 @@ const routes: Routes = [
       { path: 'drink', loadChildren: './drink/drink.module#DrinkModule',canActivate:[Auth] },
       { path: 'position', loadChildren: './position/position.module#PositionModule',canActivate:[Auth] },
       { path: 'staff', loadChildren: './staff/staff.module#StaffModule',canActivate:[Auth] },
+      { path: 'statistic', loadChildren: './statistic/statistic.module#StatisticModule',canActivate:[Auth] },
     ]
   }
 ]

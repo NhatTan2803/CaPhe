@@ -485,6 +485,15 @@
                 </ul>
               </li>
             </div>
+            <div *ngIf="user.user_permission=='boss'">
+
+              <li>
+                <a routerLink="/main/statistic" class="auto">
+                  <i class="glyphicon glyphicon-user"></i>
+                  <span>Doanh Thu</span>
+                </a>
+              </li>
+            </div>
             <div *ngIf="user.user_permission=='staff'">
               <li>
                 <a routerLink="/main/buy" class="auto">
