@@ -195,7 +195,7 @@ module.exports = {
     Bill_statistic_day: function (req, res) {
         var Idshop = req.param('Idshop');
 
-        var sql = "SELECT SUM(bills.bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt > curdate() and users.user_shop_id ="+ Idshop;
+        var sql = "SELECT SUM(bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt > curdate() and users.user_shop_id ="+ Idshop;
         console.log(sql);
 
         Bills.query(sql, function (err, result) {
@@ -209,11 +209,11 @@ module.exports = {
             }
         })
     },
-    Bill_statistic_weekend: function (req, res) {
+    Bill_statistic_week: function (req, res) {
 
         var Idshop = req.param('Idshop');
 
-        var sql = "SELECT SUM(bills.bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt < date_add(curdate(),INTERVAL 1 Day) and bills.createdAt > date_sub(curdate(),INTERVAL 7 day) and users.user_shop_id =" + Idshop;
+        var sql = "SELECT SUM(bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt < date_add(curdate(),INTERVAL 1 Day) and bills.createdAt > date_sub(curdate(),INTERVAL 7 day) and users.user_shop_id =" + Idshop;
         console.log(sql);
 
         Bills.query(sql, function (err, result) {
@@ -231,7 +231,7 @@ module.exports = {
         
                 var Idshop = req.param('Idshop');
         
-                var sql = "SELECT SUM(bills.bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt < date_add(curdate(),INTERVAL 1 Day) and bills.createdAt > date_sub(curdate(),INTERVAL 30 day) and users.user_shop_id =" + Idshop;
+                var sql = "SELECT SUM(bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt < date_add(curdate(),INTERVAL 1 Day) and bills.createdAt > date_sub(curdate(),INTERVAL 30 day) and users.user_shop_id =" + Idshop;
                 console.log(sql);
         
                 Bills.query(sql, function (err, result) {

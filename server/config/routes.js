@@ -63,7 +63,7 @@ module.exports.routes = {
   'POST /boss/get-listStaff': 'BossController.user_list_staff',
   'PUT /boss/update-staff': 'BossController.user_staff_update',
   'POST /boss/statistic-day':'BossController.Bill_statistic_day',
-  'POST /boss/statistic-weekend':'BossController.Bill_statistic_weekend',
+  'POST /boss/statistic-week':'BossController.Bill_statistic_week',
   'POST /boss/statistic-month':'BossController.Bill_statistic_month',
   
 
