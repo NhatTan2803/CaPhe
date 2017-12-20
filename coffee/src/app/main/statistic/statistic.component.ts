@@ -22,9 +22,8 @@ export class StatisticComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.profitDay();
-    this.profitMonth();
-    this.profitWeek();
+    this.getIdShop();
+    
   }
   getIdShop() {
     this._mainService.getProfile().subscribe(res => {
@@ -34,6 +33,9 @@ export class StatisticComponent implements OnInit {
       }
       if (res.status == 'success') {
         this.idShop = res.user['user_shop_id'];
+        this.profitDay();
+        this.profitMonth();
+        this.profitWeek();
         console.log('id cua shop:' + this.idShop);
         return;
       }
@@ -41,7 +43,7 @@ export class StatisticComponent implements OnInit {
   }
   profitDay() {
     let data = JSON.stringify({
-      Idshop: 4,
+      Idshop: this.idShop,
     });
     this._statisticService.profitDay(data).subscribe(res => {
       if (res.status == 'error') {
@@ -61,7 +63,7 @@ export class StatisticComponent implements OnInit {
   }
   profitWeek() {
     let data = JSON.stringify({
-      Idshop: 4,
+      Idshop: this.idShop,
     });
     this._statisticService.profitWeek(data).subscribe(res => {
       if (res.status == 'error') {
@@ -81,7 +83,7 @@ export class StatisticComponent implements OnInit {
   }
   profitMonth() {
     let data = JSON.stringify({
-      Idshop: 4,
+      Idshop: this.idShop,
     });
     this._statisticService.profitMonth(data).subscribe(res => {
       if (res.status == 'error') {
