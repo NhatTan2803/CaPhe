@@ -25,4 +25,10 @@ export class StatisticService {
   profitMonth(data: Object) {
     return this._http.post(CONFIG.BASE_API + '/boss/statistic-month', data, { headers: this.createHeaders() }).map(res => res.json())
   }
+  countBill(data: Object) {
+    return this._http.post(CONFIG.BASE_API + '/boss/count-bill', data, { headers: this.createHeaders() }).map(res => res.json())
+  }
+  countDrink(data: Object) {
+    return this._http.post(CONFIG.BASE_API + '/boss/count-drink', data, { headers: this.createHeaders() }).map(res => res.json())
+  }
 }

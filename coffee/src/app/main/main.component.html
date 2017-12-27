@@ -494,7 +494,7 @@
                 </a>
               </li>
             </div>
-            <div *ngIf="user.user_permission=='staff'">
+            <div *ngIf="user.user_permission=='staff'||user.user_permission=='boss'">
               <li>
                 <a routerLink="/main/buy" class="auto">
                   <i class="glyphicon glyphicon-user"></i>

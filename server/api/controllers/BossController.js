@@ -46,14 +46,14 @@ module.exports = {
                 message: 'Bạn chưa nhập tên'
             });
         }
-        
+
         if (!user_Idcard || user_Idcard === '') {
             return res.json({
                 status: 'error',
                 message: 'Ban chua nhap CMND'
             });
         }
-        
+
         console.log('Chưa format: ' + user_birthday);
 
         let i = user_birthday.split('/')[2] + "-" + user_birthday.split('/')[1] + "-" + user_birthday.split('/')[0];// ('16','10','2017')
@@ -126,8 +126,8 @@ module.exports = {
             user_address = req.param('staff_address'),
             user_avatar = req.param('staff_avatar'),
             user_active = req.param('staff_active');
-            console.log(user_position_id);
-            
+        console.log(user_position_id);
+
         Users.update({ user_id }, {
             user_name,
             user_id,
@@ -195,7 +195,7 @@ module.exports = {
     Bill_statistic_day: function (req, res) {
         var Idshop = req.param('Idshop');
 
-        var sql = "SELECT SUM(bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt > curdate() and users.user_shop_id ="+ Idshop;
+        var sql = "SELECT SUM(bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt > curdate() and users.user_shop_id =" + Idshop;
         console.log(sql);
 
         Bills.query(sql, function (err, result) {
@@ -228,23 +228,57 @@ module.exports = {
         })
     },
     Bill_statistic_month: function (req, res) {
-        
-                var Idshop = req.param('Idshop');
-        
-                var sql = "SELECT SUM(bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt < date_add(curdate(),INTERVAL 1 Day) and bills.createdAt > date_sub(curdate(),INTERVAL 30 day) and users.user_shop_id =" + Idshop;
-                console.log(sql);
-        
-                Bills.query(sql, function (err, result) {
-                    if (err) { return console.log(err) }
-                    if (result) {
-                        return res.json({
-                            status: 'success',
-                            message: 'Thành công',
-                            money: result,
-                        })
-                    }
+
+        var Idshop = req.param('Idshop');
+
+        var sql = "SELECT SUM(bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt < date_add(curdate(),INTERVAL 1 Day) and bills.createdAt > date_sub(curdate(),INTERVAL 30 day) and users.user_shop_id =" + Idshop;
+        console.log(sql);
+
+        Bills.query(sql, function (err, result) {
+            if (err) { return console.log(err) }
+            if (result) {
+                return res.json({
+                    status: 'success',
+                    message: 'Thành công',
+                    money: result,
                 })
             }
+        })
+    },
+    Bill_count: function (req,res){
+        var Idshop = req.param('Idshop');
+
+        var sql = "SELECT COUNT(bill_total) FROM bills JOIN users on bills.bill_user_id = users.user_id WHERE bills.createdAt > curdate() and users.user_shop_id =" + Idshop;
+        console.log(sql);
+
+        Bills.query(sql, function (err, result) {
+            if (err) { return console.log(err) }
+            if (result) {
+                return res.json({
+                    status: 'success',
+                    message: 'Thành công',
+                    bill: result,
+                })
+            }
+        })
+    },
+    Drink_count:function(req,res){
+        var Idshop = req.param('Idshop');
+
+        var sql = "SELECT SUM(detail_number) FROM detail_bill JOIN bills on detail_bill.detail_bill_id = bills.bill_id JOIN users ON bills.bill_user_id = users.user_id WHERE bills.createdAt > curdate() AND users.user_shop_id =" + Idshop;
+        console.log(sql);
+
+        Bills.query(sql, function (err, result) {
+            if (err) { return console.log(err) }
+            if (result) {
+                return res.json({
+                    status: 'success',
+                    message: 'Thành công',
+                    drink: result,
+                })
+            }
+        })
+    }
 
 };
 

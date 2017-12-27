@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 06, 2017 lúc 12:02 PM
+-- Thời gian đã tạo: Th12 27, 2017 lúc 12:44 PM
 -- Phiên bản máy phục vụ: 10.1.26-MariaDB
 -- Phiên bản PHP: 7.1.9
 
@@ -43,9 +43,15 @@ CREATE TABLE `bills` (
 --
 
 INSERT INTO `bills` (`bill_id`, `bill_user_id`, `bill_total`, `bill_Mreceive`, `bill_Mreturn`, `createdAt`, `updatedAt`) VALUES
-('17111153fcs', 3, '70000', NULL, NULL, '2017-12-01 15:42:41', '2017-12-01 15:42:41'),
-('171113lct', 3, '155000', NULL, NULL, '2017-12-01 03:46:49', '2017-12-01 03:46:49'),
-('1711617mbf1', 9, '33000', NULL, NULL, '2017-12-06 17:58:04', '2017-12-06 17:58:04');
+('1711221539bk', 6, '77000', NULL, NULL, '2017-12-23 15:06:54', '2017-12-23 15:06:54'),
+('17112215s1hr', 6, '62000', NULL, NULL, '2017-12-22 15:06:14', '2017-12-22 15:06:14'),
+('171127160bh8', 9, '33000', NULL, NULL, '2017-12-27 16:15:11', '2017-12-27 16:15:11'),
+('171127173bo5', 9, '74000', NULL, NULL, '2017-12-27 17:59:18', '2017-12-27 17:59:18'),
+('171127177j4r', 9, '40000', NULL, NULL, '2017-12-27 17:19:04', '2017-12-27 17:19:04'),
+('17112717p3em', 2, '37000', NULL, NULL, '2017-12-27 17:26:29', '2017-12-27 17:26:29'),
+('1711271860drf', 2, '160000', NULL, NULL, '2017-12-27 18:35:28', '2017-12-27 18:35:28'),
+('171127186iil', 4, '22000', NULL, NULL, '2017-12-27 18:25:39', '2017-12-27 18:25:39'),
+('17112718sdped', 4, '60000', NULL, NULL, '2017-12-27 18:42:51', '2017-12-27 18:42:51');
 
 -- --------------------------------------------------------
 
@@ -70,10 +76,17 @@ CREATE TABLE `detail_bill` (
 --
 
 INSERT INTO `detail_bill` (`detail_id`, `detail_bill_id`, `detail_drink_id`, `detail_drink_name`, `detail_number`, `detail_price`, `detail_moneyItem_drink`, `createdAt`, `updatedAt`) VALUES
-(1, '171113lct', 2, 'Cà Phê Sữa', 2, '25000', '50000', '2017-12-01 03:46:49', '2017-12-01 03:46:49'),
-(2, '171113lct', 4, 'Nước Cam', 3, '35000', '105000', '2017-12-01 03:46:49', '2017-12-01 03:46:49'),
-(3, '17111153fcs', 4, 'Nước Cam', 2, '35000', '70000', '2017-12-01 15:42:41', '2017-12-01 15:42:41'),
-(4, '1711617mbf1', 7, ' Sinh Tố Bơ', 1, '33000', '33000', '2017-12-06 17:58:04', '2017-12-06 17:58:04');
+(1, '17112215s1hr', 6, ' Sinh Tố Dưa Hấu', 1, '29000', '29000', '2017-12-22 15:06:14', '2017-12-22 15:06:14'),
+(2, '17112215s1hr', 7, ' Sinh Tố Bơ', 1, '33000', '33000', '2017-12-22 15:06:14', '2017-12-22 15:06:14'),
+(3, '1711221539bk', 9, 'Cà Phê Sữa', 1, '37000', '37000', '2017-12-23 15:06:55', '2017-12-23 15:06:55'),
+(4, '1711221539bk', 10, 'Trà xanh', 1, '40000', '40000', '2017-12-23 15:06:55', '2017-12-23 15:06:55'),
+(5, '171127160bh8', 7, ' Sinh Tố Bơ', 1, '33000', '33000', '2017-12-27 16:15:11', '2017-12-27 16:15:11'),
+(6, '171127177j4r', 10, 'Trà xanh', 1, '40000', '40000', '2017-12-27 17:19:04', '2017-12-27 17:19:04'),
+(7, '17112717p3em', 9, 'Cà Phê Sữa', 1, '37000', '37000', '2017-12-27 17:26:29', '2017-12-27 17:26:29'),
+(8, '171127173bo5', 9, 'Cà Phê Sữa', 2, '37000', '74000', '2017-12-27 17:59:18', '2017-12-27 17:59:18'),
+(9, '171127186iil', 1, 'Cà Phê Đen', 1, '22000', '22000', '2017-12-27 18:25:39', '2017-12-27 18:25:39'),
+(10, '1711271860drf', 10, 'Trà xanh', 4, '40000', '160000', '2017-12-27 18:35:28', '2017-12-27 18:35:28'),
+(11, '17112718sdped', 3, 'Cà Phê Đặc Biệt', 2, '30000', '60000', '2017-12-27 18:42:51', '2017-12-27 18:42:51');
 
 -- --------------------------------------------------------
 
@@ -109,10 +122,10 @@ INSERT INTO `drinks` (`drink_id`, `drink_shop_id`, `drink_name`, `drink_price`, 
 (13, 4, 'Cà phê đen', '22000', NULL),
 (14, 4, 'Cà phê sữa', '25000', NULL),
 (15, 4, 'Cam vắt', '32000', NULL),
-(16, 4, 'Sữa dừa', '36000', NULL),
+(16, 4, 'Sữa dừa', '36000', '73b67418-e4a2-4862-828f-66ab44e63846.jpg'),
 (17, 2, 'Trà Đào', '41000', 'e19690c3-0c6a-4fde-97d3-90c85b9d6a18.jpg'),
 (18, 2, 'Trà Đào', '35000', '472a085b-d799-46be-a741-5f4131fde0eb.jpg'),
-(19, 4, 'Cà Phê Đen', '27000', '');
+(19, 4, 'Cà Phê Đen', '27000', 'd5c8f5df-421a-462d-a89e-f1246ce20eba.jpg');
 
 -- --------------------------------------------------------
 
@@ -142,7 +155,12 @@ INSERT INTO `positions` (`position_id`, `position_shop_id`, `position_name`, `cr
 (14, '4', 'Thu Ngân - Ân', '2017-12-03 08:33:11', '2017-12-03 08:33:11'),
 (15, '4', 'Tạp Vụ - Ân', '2017-12-03 08:33:24', '2017-12-03 08:33:24'),
 (16, '4', 'Kế Toán - Ân', '2017-12-03 08:33:38', '2017-12-03 08:33:38'),
-(17, '4', 'Giữ xe - Ân', '2017-12-03 08:33:52', '2017-12-03 08:33:52');
+(17, '4', 'Giữ xe - Ân', '2017-12-03 08:33:52', '2017-12-03 08:33:52'),
+(18, '1', 'Kế Toán', '2017-12-19 16:18:08', '2017-12-19 16:18:08'),
+(19, '1', 'Thu Ngân', '2017-12-19 16:18:23', '2017-12-19 16:18:23'),
+(20, '1', 'Giữ Xe', '2017-12-19 16:18:28', '2017-12-19 16:18:28'),
+(21, '1', 'Tạp Vụ', '2017-12-19 16:18:36', '2017-12-19 16:18:36'),
+(22, '1', 'Quản Lí', '2017-12-19 16:19:39', '2017-12-19 16:19:39');
 
 -- --------------------------------------------------------
 
@@ -242,10 +260,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_shop_id`, `user_name`, `user_email`, `user_password`, `user_Idcard`, `user_birthday`, `user_sex`, `user_avatar`, `user_phone`, `user_address`, `user_active`, `user_position_id`, `user_permission`, `createdAt`, `updatedAt`) VALUES
-(1, NULL, 'Nguyễn Nhật Tân', '1@gmail.com', '$2a$10$DnAbQ/UFCZRl.QYL6UdaKO2uTLplGEZ3fO59xFjfkf4/ZCWtksp8i', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin', '2017-11-18 20:07:51', '2017-11-18 20:07:51'),
-(2, 2, 'Trương Tấn Sang', '2@gmail.com', '$2a$10$Qk7JuIZ39jcKmXLC42jjNO.AD/57bAVN6//K07tiN9sroaJqMcnla', '225647597', NULL, NULL, '5c87d951-48c2-4cbd-bc56-9006db03386a.jpg', '0984456148', '145/12/3 D2,P.25,Quận Bình Thạnh,Hồ Chí Minh', 'on', NULL, 'boss', '2017-11-18 20:08:08', '2017-12-06 10:30:54'),
+(1, NULL, 'Nguyễn Nhật Tân', '1@gmail.com', '$2a$10$DnAbQ/UFCZRl.QYL6UdaKO2uTLplGEZ3fO59xFjfkf4/ZCWtksp8i', NULL, NULL, NULL, NULL, NULL, NULL, 'on', NULL, 'admin', '2017-11-18 20:07:51', '2017-11-18 20:07:51'),
+(2, 2, 'Trương Tấn Sang', '2@gmail.com', '$2a$10$FtpqgoEzXzI.gWTIiaJzg./6PHCrYZwqMQB38ii/pp7i2RX.gy6ny', '225647597', NULL, NULL, '5c87d951-48c2-4cbd-bc56-9006db03386a.jpg', '0984456148', '145/12/3 D2,P.25,Quận Bình Thạnh,Hồ Chí Minh', 'on', NULL, 'boss', '2017-11-18 20:08:08', '2017-12-27 16:14:19'),
 (3, 3, 'Nguyễn Hải Ân', '3@gmail.com', '$2a$10$Uak5bx/hBSVFuSZVbyHJduTQO81x/yZ6qOVwLJ2z4isEKr5Nh129i', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'staff', '2017-11-18 20:08:30', '2017-11-18 20:08:30'),
-(4, 1, 'Trần Song Thy', '4@gmail.com', '$2a$10$B7ayEERpquyK2iRBWVcqs.sIKVg7JYJpSRMSwzc0IzvtUGEflVQgO', '225493718', '2017-12-11', NULL, '8c33f50a-46b9-4bea-b79c-1f7cedf82e6d.jpg', '0914413959', '10 Hải ân,P.2.Quận 12,Hồ Chí Minh', 'on', NULL, 'boss', '2017-11-22 02:36:25', '2017-12-06 09:22:52'),
+(4, 1, 'Trần Song Thy', '4@gmail.com', '$2a$10$IdZ30WqGgVR5TMM2TpJAReqRupVkaz/WVgrUUa59Byg6APmvO9Xjy', '225493718', '2017-12-11', NULL, '8c33f50a-46b9-4bea-b79c-1f7cedf82e6d.jpg', '0914413959', '10 Hải ân,P.2.Quận 12,Hồ Chí Minh', 'on', NULL, 'boss', '2017-11-22 02:36:25', '2017-12-27 18:24:57'),
 (5, 4, 'Nguyễn Ân ', 'an@gmail.com', '$2a$10$9H2pCKdXsSs/tf1iW0i2legQWOIr2IUISVxYFj2mV0BFNimQ34rSS', '2254028754', '2017-02-12', 'male', 'dab3ff83-64a2-4b14-bc88-e358b919dc89.jpg', '01694720847', '6 Ung Thái Văn,P.27,Quận 12,Hồ Chí Minh', 'off', NULL, 'boss', '2017-12-02 12:35:01', '2017-12-06 11:14:17'),
 (6, 2, 'Thái Sang', 'sang@gmail.com', '$2a$10$yaGU0CfaKY1Of8E8iq89Te8dWCKbJ7E9I4CBd4E2G//gk3AqRQNu2', '224395840', '2017-04-12', 'male', '2342880b-bd4a-4b75-b724-97f892d2d665.jpg', '01693759234', 'thành công 1', 'on', 9, 'staff', '2017-12-02 20:02:11', '2017-12-06 16:43:41'),
 (7, 2, 'Trần Văn Tài', 'tai@gmail.com', '$2a$10$DW3aLX6JfwbDW6sZ67XCye41NP5SF3dOnDU9pEDpvzkPi8Gs.zjHy', '224593285', '2012-08-01', 'male', '3914ba4c-b80b-4d0e-82e2-4a7737d10a3c.jpg', '01694729472', 'demo 12', 'on', 11, 'staff', '2017-12-02 20:17:44', '2017-12-06 16:46:49'),
@@ -287,8 +305,7 @@ ALTER TABLE `drinks`
 -- Chỉ mục cho bảng `positions`
 --
 ALTER TABLE `positions`
-  ADD PRIMARY KEY (`position_id`),
-  ADD UNIQUE KEY `position_name` (`position_name`);
+  ADD PRIMARY KEY (`position_id`);
 
 --
 -- Chỉ mục cho bảng `shops`
@@ -324,7 +341,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `detail_bill`
 --
 ALTER TABLE `detail_bill`
-  MODIFY `detail_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `detail_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `drinks`
@@ -336,7 +353,7 @@ ALTER TABLE `drinks`
 -- AUTO_INCREMENT cho bảng `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `position_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `position_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `shops`
