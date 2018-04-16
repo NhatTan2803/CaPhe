@@ -17,16 +17,16 @@ export class MainService {
     headers.append('token', this._tokenService.getToken(CONFIG.TOKEN));
     return headers;
   }
-  getProfile() {
-    return this._http.get(CONFIG.BASE_API + '/users/profile', { headers: this.createHeaders() }).map(res => res.json());
+  getProfile(){
+    return this._http.get(CONFIG.BASE_API + '/users/profile',{headers: this.createHeaders()}).map(res=>res.json());
   }
-  getProfileShop(data: Object) {
-    return this._http.post(CONFIG.BASE_API + '/boss/get-name', data, { headers: this.createHeaders() }).map(res => res.json())
+  getProfileShop(data:Object){
+    return this._http.post(CONFIG.BASE_API +'/boss/get-name',data,{headers: this.createHeaders()}).map(res=>res.json())
   }
-  tokenError() {
+  tokenError(){
     this._tokenService.errorToken();
   }
-  logout() {
+  logout(){
     this._tokenService.logout();
   }
 }

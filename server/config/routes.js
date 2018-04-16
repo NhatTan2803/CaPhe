@@ -65,6 +65,8 @@ module.exports.routes = {
   'POST /boss/statistic-day':'BossController.Bill_statistic_day',
   'POST /boss/statistic-week':'BossController.Bill_statistic_week',
   'POST /boss/statistic-month':'BossController.Bill_statistic_month',
+  'POST /boss/count-bill':'BossController.Bill_count',
+  'POST /boss/count-drink':'BossController.Drink_count',
   
 
 

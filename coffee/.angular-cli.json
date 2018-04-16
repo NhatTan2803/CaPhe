@@ -28,7 +28,6 @@
         "../node_modules/toastr/build/toastr.min.css",
         "assets/css/font.css",
         "assets/css/app.css"
-        
       ],
       "scripts": [
         "assets/js/jquery.js",
@@ -36,14 +35,7 @@
         "assets/js/moment.min.js",
         "assets/js/bootstrap.js",
         "assets/js/bootstrap-datetimepicker.min.js",
-        "assets/js/app.js",
-        "assets/js/ui-client.js",
-        "assets/js/ui-toggle.js",
-        "assets/js/ui-nav.js",
-        "assets/js/ui-jp.js",
-        "assets/js/ui-jp.config.js",
-        "assets/js/ui-load.js"
-       
+        "assets/js/app.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

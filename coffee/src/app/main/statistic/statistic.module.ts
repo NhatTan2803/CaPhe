@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { StatisticService } from './statistic.service';
 import { FormsModule } from '@angular/forms'
 import { StatisticComponent } from './statistic.component';
-import {ChartModule} from 'angular2-chartjs'
+
 const routes: Routes = [
   { path: '', component: StatisticComponent }
 ]
@@ -12,7 +12,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    ChartModule,
+    
     RouterModule.forChild(routes),
   ],
   providers: [StatisticService],

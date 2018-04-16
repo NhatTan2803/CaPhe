@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 06, 2017 lúc 12:02 PM
--- Phiên bản máy phục vụ: 10.1.26-MariaDB
--- Phiên bản PHP: 7.1.9
+-- Host: localhost
+-- Generation Time: Apr 16, 2018 at 10:23 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.1.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `cf_shop`
+-- Database: `cf_shop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bills`
+-- Table structure for table `bills`
 --
 
 CREATE TABLE `bills` (
@@ -39,7 +39,7 @@ CREATE TABLE `bills` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `bills`
+-- Dumping data for table `bills`
 --
 
 INSERT INTO `bills` (`bill_id`, `bill_user_id`, `bill_total`, `bill_Mreceive`, `bill_Mreturn`, `createdAt`, `updatedAt`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `bills` (`bill_id`, `bill_user_id`, `bill_total`, `bill_Mreceive`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `detail_bill`
+-- Table structure for table `detail_bill`
 --
 
 CREATE TABLE `detail_bill` (
@@ -66,7 +66,7 @@ CREATE TABLE `detail_bill` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `detail_bill`
+-- Dumping data for table `detail_bill`
 --
 
 INSERT INTO `detail_bill` (`detail_id`, `detail_bill_id`, `detail_drink_id`, `detail_drink_name`, `detail_number`, `detail_price`, `detail_moneyItem_drink`, `createdAt`, `updatedAt`) VALUES
@@ -78,7 +78,7 @@ INSERT INTO `detail_bill` (`detail_id`, `detail_bill_id`, `detail_drink_id`, `de
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `drinks`
+-- Table structure for table `drinks`
 --
 
 CREATE TABLE `drinks` (
@@ -90,7 +90,7 @@ CREATE TABLE `drinks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `drinks`
+-- Dumping data for table `drinks`
 --
 
 INSERT INTO `drinks` (`drink_id`, `drink_shop_id`, `drink_name`, `drink_price`, `drink_avatar`) VALUES
@@ -117,7 +117,7 @@ INSERT INTO `drinks` (`drink_id`, `drink_shop_id`, `drink_name`, `drink_price`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `positions`
+-- Table structure for table `positions`
 --
 
 CREATE TABLE `positions` (
@@ -129,7 +129,7 @@ CREATE TABLE `positions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `positions`
+-- Dumping data for table `positions`
 --
 
 INSERT INTO `positions` (`position_id`, `position_shop_id`, `position_name`, `createdAt`, `updatedAt`) VALUES
@@ -147,7 +147,7 @@ INSERT INTO `positions` (`position_id`, `position_shop_id`, `position_name`, `cr
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `shops`
+-- Table structure for table `shops`
 --
 
 CREATE TABLE `shops` (
@@ -165,7 +165,7 @@ CREATE TABLE `shops` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `shops`
+-- Dumping data for table `shops`
 --
 
 INSERT INTO `shops` (`shop_id`, `shop_name`, `shop_system_id`, `shop_email`, `shop_address`, `shop_phone`, `shop_avatar`, `shop_dayFrom`, `shop_dayTo`, `createdAt`, `updatedAt`) VALUES
@@ -178,7 +178,7 @@ INSERT INTO `shops` (`shop_id`, `shop_name`, `shop_system_id`, `shop_email`, `sh
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `systems`
+-- Table structure for table `systems`
 --
 
 CREATE TABLE `systems` (
@@ -190,7 +190,7 @@ CREATE TABLE `systems` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `systems`
+-- Dumping data for table `systems`
 --
 
 INSERT INTO `systems` (`system_id`, `system_name`, `system_address`, `createdAt`, `updatedAt`) VALUES
@@ -202,7 +202,7 @@ INSERT INTO `systems` (`system_id`, `system_name`, `system_address`, `createdAt`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `type_drinks`
+-- Table structure for table `type_drinks`
 --
 
 CREATE TABLE `type_drinks` (
@@ -215,7 +215,7 @@ CREATE TABLE `type_drinks` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -238,11 +238,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_shop_id`, `user_name`, `user_email`, `user_password`, `user_Idcard`, `user_birthday`, `user_sex`, `user_avatar`, `user_phone`, `user_address`, `user_active`, `user_position_id`, `user_permission`, `createdAt`, `updatedAt`) VALUES
-(1, NULL, 'Nguyễn Nhật Tân', '1@gmail.com', '$2a$10$DnAbQ/UFCZRl.QYL6UdaKO2uTLplGEZ3fO59xFjfkf4/ZCWtksp8i', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin', '2017-11-18 20:07:51', '2017-11-18 20:07:51'),
+(1, NULL, 'Nguyễn Nhật Tân', '1@gmail.com', '$2a$10$DnAbQ/UFCZRl.QYL6UdaKO2uTLplGEZ3fO59xFjfkf4/ZCWtksp8i', NULL, NULL, NULL, NULL, NULL, NULL, 'on', NULL, 'admin', '2017-11-18 20:07:51', '2017-11-18 20:07:51'),
 (2, 2, 'Trương Tấn Sang', '2@gmail.com', '$2a$10$Qk7JuIZ39jcKmXLC42jjNO.AD/57bAVN6//K07tiN9sroaJqMcnla', '225647597', NULL, NULL, '5c87d951-48c2-4cbd-bc56-9006db03386a.jpg', '0984456148', '145/12/3 D2,P.25,Quận Bình Thạnh,Hồ Chí Minh', 'on', NULL, 'boss', '2017-11-18 20:08:08', '2017-12-06 10:30:54'),
 (3, 3, 'Nguyễn Hải Ân', '3@gmail.com', '$2a$10$Uak5bx/hBSVFuSZVbyHJduTQO81x/yZ6qOVwLJ2z4isEKr5Nh129i', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'staff', '2017-11-18 20:08:30', '2017-11-18 20:08:30'),
 (4, 1, 'Trần Song Thy', '4@gmail.com', '$2a$10$B7ayEERpquyK2iRBWVcqs.sIKVg7JYJpSRMSwzc0IzvtUGEflVQgO', '225493718', '2017-12-11', NULL, '8c33f50a-46b9-4bea-b79c-1f7cedf82e6d.jpg', '0914413959', '10 Hải ân,P.2.Quận 12,Hồ Chí Minh', 'on', NULL, 'boss', '2017-11-22 02:36:25', '2017-12-06 09:22:52'),
@@ -262,102 +262,101 @@ INSERT INTO `users` (`user_id`, `user_shop_id`, `user_name`, `user_email`, `user
 (18, 5, 'Nguyễn Thành Trang', 'trang@gmail.com', '$2a$10$KW6BBO8Vd9r.2xlx/Uhue.rmTwNRCEN8sHtR8vBN6Mvhk/FSDtN76', '225693862', '1996-09-21', 'male', '2307321a-1baa-4999-84f9-f937de4bcf10.jpg', '0914439683', 'Phòng 2,Lầu 13,Chung Cư Phạm Viết Chánh,P3,Quận Bình Thạnh,Hồ Chí Minh', 'on', NULL, 'boss', '2017-12-06 11:01:49', '2017-12-06 15:21:37');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `bills`
+-- Indexes for table `bills`
 --
 ALTER TABLE `bills`
   ADD PRIMARY KEY (`bill_id`);
 
 --
--- Chỉ mục cho bảng `detail_bill`
+-- Indexes for table `detail_bill`
 --
 ALTER TABLE `detail_bill`
   ADD PRIMARY KEY (`detail_id`);
 
 --
--- Chỉ mục cho bảng `drinks`
+-- Indexes for table `drinks`
 --
 ALTER TABLE `drinks`
   ADD PRIMARY KEY (`drink_id`);
 
 --
--- Chỉ mục cho bảng `positions`
+-- Indexes for table `positions`
 --
 ALTER TABLE `positions`
-  ADD PRIMARY KEY (`position_id`),
-  ADD UNIQUE KEY `position_name` (`position_name`);
+  ADD PRIMARY KEY (`position_id`);
 
 --
--- Chỉ mục cho bảng `shops`
+-- Indexes for table `shops`
 --
 ALTER TABLE `shops`
   ADD PRIMARY KEY (`shop_id`);
 
 --
--- Chỉ mục cho bảng `systems`
+-- Indexes for table `systems`
 --
 ALTER TABLE `systems`
   ADD PRIMARY KEY (`system_id`),
   ADD UNIQUE KEY `system_name` (`system_name`);
 
 --
--- Chỉ mục cho bảng `type_drinks`
+-- Indexes for table `type_drinks`
 --
 ALTER TABLE `type_drinks`
   ADD PRIMARY KEY (`type_id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
   ADD UNIQUE KEY `user_email` (`user_email`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `detail_bill`
+-- AUTO_INCREMENT for table `detail_bill`
 --
 ALTER TABLE `detail_bill`
   MODIFY `detail_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `drinks`
+-- AUTO_INCREMENT for table `drinks`
 --
 ALTER TABLE `drinks`
   MODIFY `drink_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT cho bảng `positions`
+-- AUTO_INCREMENT for table `positions`
 --
 ALTER TABLE `positions`
   MODIFY `position_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT cho bảng `shops`
+-- AUTO_INCREMENT for table `shops`
 --
 ALTER TABLE `shops`
   MODIFY `shop_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `systems`
+-- AUTO_INCREMENT for table `systems`
 --
 ALTER TABLE `systems`
   MODIFY `system_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `type_drinks`
+-- AUTO_INCREMENT for table `type_drinks`
 --
 ALTER TABLE `type_drinks`
   MODIFY `type_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
