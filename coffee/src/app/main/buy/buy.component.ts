@@ -84,7 +84,6 @@ export class BuyComponent implements OnInit {
           console.log('so luong da duoc cong ' + sanpham[i].soluong);
           //console.log('Ma id cua san pham ' + sys['drink_id']);
           break;
-
         }
         console.log('Ngat ra khoi if')
         console.log(sanpham[i].soluong);
@@ -106,8 +105,6 @@ export class BuyComponent implements OnInit {
       sessionStorage.setItem('giohang', '[' + myJsString + ']');
       this.thongtingio();
     }
-
-
   }
   thongtingio() {
     this.giohangs = this._buyService.getContent();
@@ -181,13 +178,15 @@ export class BuyComponent implements OnInit {
   }
   capnhatgio(event: any) {
     const id = event.target.id;
-    console.log(id);
+    //console.log(id);
     const msp = id.substring(2);
-    console.log('ma san pham' + msp);
+    //console.log('ma san pham' + msp);
     let soluong = event.target.value;
-    console.log('soluong:' + soluong);
+    //console.log('soluong:' + soluong);
     let tan = sessionStorage.getItem('giohang');
     const sanpham = JSON.parse(tan);
+    //console.log(soluong.length);
+    
     if (soluong.length > 0) {
       soluong = Number.parseInt(soluong);
       if (Number.isNaN(soluong) || soluong > 0) {

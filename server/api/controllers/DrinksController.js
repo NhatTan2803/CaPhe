@@ -14,7 +14,6 @@ module.exports = {
                 return console.log(err)
             }
             if (find) {
-                console.log('cho find' + find)
                 return res.json({
                     status: 'success',
                     drinks: find,
@@ -54,8 +53,7 @@ module.exports = {
             drink_name = req.param('drink_name'),
             drink_price = req.param('drink_price'),
             drink_avatar = req.param('drink_avatar');
-        Drinks.update({ drink_id },
-            {
+        Drinks.update({ drink_id },{
                 drink_name,
                 drink_price,
                 drink_avatar

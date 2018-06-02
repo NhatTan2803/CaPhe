@@ -49,7 +49,7 @@ module.exports.routes = {
   //SystemController
   'GET /systems/listsystem': 'SystemController.system_list',
   'POST /systems/create': 'SystemController.system_create',
-  'GET /systems/get': 'SystemController.system_info',
+  'POST /systems/get': 'SystemController.system_info',
   'DELETE /systems/del': 'SystemController.system_del',
   // UserController
   'POST /users/login': 'UsersController.user_login',

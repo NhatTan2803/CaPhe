@@ -44,15 +44,15 @@ module.exports = {
         })
     },
     system_info: function (req, res) {
-        var system_id = req.header.authID;
-        if (!system_id || system_id === '' || system_id === 0) {
+        var system_id = req.param('system_id');
+        if (!system_id || system_id === 0) {
             return res.json({
                 status: 'error',
                 message: 'id khong hop le',
             })
         }
-        systems.findOne({ system_id }).exec(function (err, found) {
-            if (err) { return console.log('loi server') }
+        Systems.find({ system_id }).exec(function (err, found) {
+            if (err) { return console.log(err) }
             if (found) {
                 return res.json({
                     status: 'success',
