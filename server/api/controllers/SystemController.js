@@ -63,7 +63,7 @@ module.exports = {
             else {
                 return res.json({
                     status: 'error',
-                    message: 'KHong tim thay he thong co ID nay',
+                    message: 'Khong tim thay he thong co ID nay',
                 });
             }
         });
@@ -82,6 +82,31 @@ module.exports = {
             console.log(error)
         });
     },
-    
+    //Cập nhật thông tin quán
+    system_update: function (req, res) {
+        var system_id = req.param('system_id'),
+            system_name = req.param('system_name'),
+            system_address = req.param('system_address')
+
+        if (!system_id || system_id === '') {
+            return console.log('Id chưa được nhập')
+        }
+        Systems.update({ system_id: system_id },
+            {
+                system_name: system_name,
+                system_address: system_address,
+            }
+            ).exec(function (err, updated) {
+                if (err) { return console.log(err) }
+                if (updated) {
+                    return res.json({
+                        status: 'success',
+                        message: 'Cập nhật thành công',
+                        system: Object.assign({}, updated[0])
+                    })
+                }
+            })
+        
+    },
 };
 

@@ -85,5 +85,29 @@ module.exports = {
             console.log(error)
         });
     },
+    position_update: function (req, res) {
+        var position_id = req.param('position_id'),
+            position_name = req.param('position_name')
+
+        if (!position_id || position_id === '') {
+            return console.log('Id chưa được nhập')
+        }
+        Positions.update({ position_id: position_id },
+            {
+                position_name: position_name,
+            }
+        ).exec(function (err, updated) {
+            if (err) { return console.log(err) }
+            if (updated) {
+                return res.json({
+                    status: 'success',
+                    message: 'Cập nhật thành công',
+                    position: Object.assign({}, updated[0])
+                })
+            }
+        })
+
+    },
+
 };
 

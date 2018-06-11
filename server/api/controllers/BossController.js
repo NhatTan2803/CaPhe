@@ -120,31 +120,38 @@ module.exports = {
             user_id = req.param('staff_id'),
             user_email = req.param('staff_email'),
             user_Idcard = req.param('staff_Idcard'),
-            user_sex = req.param('staff_sex'),
+            //user_sex = req.param('staff_sex'),
             user_position_id = req.param('staff_position_id'),
             user_phone = req.param('staff_phone'),
             user_address = req.param('staff_address'),
             user_avatar = req.param('staff_avatar'),
-            user_active = req.param('staff_active');
-        console.log(user_position_id);
+            user_active = req.param('staff_active'),
+        // console.log(user_position_id);
+            user_birthday = req.param('staff_birthday')
+        console.log('Chưa format: ' + user_birthday);
+        let i = user_birthday.split('/')[2] + "-" + user_birthday.split('/')[1] + "-" + user_birthday.split('/')[0];// ('16','10','2017')
 
+        console.log('Đã format:' + moment(i).format('YYYY-MM-DD'));
+        user_birthday = moment(i).format('YYYY-MM-DD');
         Users.update({ user_id }, {
             user_name,
             user_id,
             user_email,
             user_Idcard,
-            user_sex,
+            //user_sex,
             user_position_id,
             user_phone,
             user_avatar,
             user_address,
-            user_active
+            user_active,
+            user_birthday,
         }).exec(function (err, updated) {
             if (err) { console.log(err) }
             if (updated) {
                 return res.json({
                     status: 'success',
-                    message: 'Cập nhật thành công'
+                    message: 'Cập nhật thành công',
+                    staff: Object.assign({}, updated[0])
                 })
 
             }

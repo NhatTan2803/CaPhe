@@ -126,6 +126,7 @@ module.exports = {
                     return res.json({
                         status: 'success',
                         message: 'Cập nhật thành công',
+                        shop: Object.assign({}, updated[0])
                     })
                 }
             })
@@ -150,6 +151,7 @@ module.exports = {
                         return res.json({
                             status: 'success',
                             message: 'Cập nhật thành công',
+                            shop: Object.assign({}, updated[0])
                         })
                     }
                 })
@@ -172,6 +174,7 @@ module.exports = {
                             return res.json({
                                 status: 'success',
                                 message: 'Cập nhật thành công',
+                                shop: Object.assign({}, updated[0])
                             })
                         }
                     })
@@ -205,6 +208,7 @@ module.exports = {
                                 return res.json({
                                     status: 'success',
                                     message: 'Cập nhật thành công',
+                                    shop: Object.assign({}, updated[0])
                                 })
                             }
                         })
@@ -396,7 +400,8 @@ module.exports = {
                     if (created) {
                         return res.json({
                             status: 'success',
-                            message: 'Tạo tài khoản cho chủ quán thành công'
+                            message: 'Tạo tài khoản cho chủ quán thành công',
+                            boss: created
                         });
                     }
                 });
@@ -405,7 +410,7 @@ module.exports = {
     },
     // Tất cả tài khoản
     all_account: function (req, res) {
-        var sql = 'SELECT users.user_shop_id, users.user_email,users.user_id,users.user_name ,users.user_active,users.user_phone,shops.shop_name,users.user_Idcard,users.user_address,users.user_password,users.user_avatar FROM users LEFT JOIN shops ON users.user_shop_id = shops.shop_id where users.user_permission="boss"'
+        var sql = 'SELECT users.user_shop_id, users.user_sex, users.user_email,users.user_id,users.user_name ,users.user_active,users.user_phone,shops.shop_name,users.user_Idcard,users.user_address,users.user_password,users.user_avatar FROM users LEFT JOIN shops ON users.user_shop_id = shops.shop_id where users.user_permission="boss"'
         Users.query(sql, function (err, result) {
             if (err) { return console.log(err) }
             if (result) {
@@ -510,6 +515,12 @@ module.exports = {
             user_phone = req.param('boss_phone'),
             user_address = req.param('boss_address'),
             user_active = req.param('boss_active');
+            user_birthday = req.param('boss_birthday')
+        console.log('Chưa format: ' + user_birthday);
+        let i = user_birthday.split('/')[2] + "-" + user_birthday.split('/')[1] + "-" + user_birthday.split('/')[0];// ('16','10','2017')
+
+        console.log('Đã format:' + moment(i).format('YYYY-MM-DD'));
+        user_birthday = moment(i).format('YYYY-MM-DD');
         Users.update({ user_id: user_id }, {
             user_avatar: user_avatar,
             user_name: user_name,
@@ -519,13 +530,15 @@ module.exports = {
             user_email: user_email,
             user_phone: user_phone,
             user_address: user_address,
-            user_active: user_active
+            user_active: user_active,
+            user_birthday: user_birthday
         }).exec(function (err, updated) {
             if (err) { return console.log(err) }
             if (updated) {
                 return res.json({
                     status: 'success',
-                    message: 'Cập nhật thành công'
+                    message: 'Cập nhật thành công',
+                    boss: Object.assign({}, updated[0])
                 })
             }
         })

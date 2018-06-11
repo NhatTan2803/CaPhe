@@ -51,6 +51,7 @@ module.exports.routes = {
   'POST /systems/create': 'SystemController.system_create',
   'POST /systems/get': 'SystemController.system_info',
   'DELETE /systems/del': 'SystemController.system_del',
+  'PUT /systems/update': 'SystemController.system_update',
   // UserController
   'POST /users/login': 'UsersController.user_login',
   'GET /users/profile': 'UsersController.user_profile',
@@ -89,6 +90,7 @@ module.exports.routes = {
   'POST /positions/create': 'PositionController.position_create',
   'GET /positions/get': 'PositionController.position_info',
   'DELETE /positions/del': 'PositionController.position_del',
+  'PUT /positions/update': 'PositionController.position_update'
 
   /***************************************************************************
   *                                                                          *
