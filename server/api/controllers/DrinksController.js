@@ -43,7 +43,8 @@ module.exports = {
             if (tao) {
                 return res.json({
                     status: 'success',
-                    message: 'Thêm sản phẩm thành công'
+                    message: 'Thêm sản phẩm thành công',
+                    drink: tao
                 })
             }
         })
@@ -62,7 +63,8 @@ module.exports = {
                 if (updated) {
                     return res.json({
                         status: 'success',
-                        message: 'Cập nhật thành công'
+                        message: 'Cập nhật thành công',
+                        drink: Object.assign({}, updated[0])
                     })
                 }
             })
