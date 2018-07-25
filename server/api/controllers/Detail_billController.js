@@ -12,7 +12,7 @@ module.exports = {
             detail_drink_name = req.param('detail_drink_name'),
             detail_number = req.param('detail_number'),
             detail_price = req.param('detail_price'),
-            detail_moneyItem_drink = req.param('detail_toalMoney_drink')
+            detail_toalMoney_drink = req.param('detail_toalMoney_drink')
         Detail_bill.create(
             {
                 detail_bill_id,
@@ -20,13 +20,14 @@ module.exports = {
                 detail_drink_name,
                 detail_number,
                 detail_price,
-                detail_moneyItem_drink
+                detail_toalMoney_drink
             }
         ).exec(function (err, create) {
             if (err) { return console.log(err) }
             if (create) {
                 return res.json({
                     status: 'success',
+                    detail_bill: create
                 })
             }
         })

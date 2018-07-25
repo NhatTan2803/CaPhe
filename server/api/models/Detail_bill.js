@@ -16,7 +16,7 @@ module.exports = {
     },
     // Mã Hóa đơn
     detail_bill_id: {
-      type: 'string',
+      type: 'integer',
     },
     // Mã đồ uống
     detail_drink_id: {
@@ -35,7 +35,7 @@ module.exports = {
       type: 'decimal'
     },
     // Tổng giá tiền thành của 1 sản phẩm
-    detail_moneyItem_drink: {
+    detail_toalMoney_drink: {
       type: 'decimal'
     }
   }

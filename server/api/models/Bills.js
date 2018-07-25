@@ -10,7 +10,8 @@ module.exports = {
   attributes: {
     // Mã hóa đơn
     bill_id: {
-      type: 'string',     
+      type: 'integer',     
+      autoIncrement: true,
       primaryKey: true,
     },
     // Mã nhân viên
@@ -20,15 +21,15 @@ module.exports = {
     // Tổng tiền của hóa đơn
     bill_total: {
       type: 'decimal',
-    },
-    // Tiền nhận từ khách
-    bill_Mreceive: {
-      type: 'decimal',
-    },
-    // Tiền trả khách
-    bill_Mreturn: {
-      type: 'decimal',
     }
+    // Tiền nhận từ khách
+    // bill_Mreceive: {
+    //   type: 'decimal',
+    // },
+    // // Tiền trả khách
+    // bill_Mreturn: {
+    //   type: 'decimal',
+    // }
     
   }
 };

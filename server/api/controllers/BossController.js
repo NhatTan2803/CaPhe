@@ -128,11 +128,14 @@ module.exports = {
             user_active = req.param('staff_active'),
         // console.log(user_position_id);
             user_birthday = req.param('staff_birthday')
-        console.log('Chưa format: ' + user_birthday);
-        let i = user_birthday.split('/')[2] + "-" + user_birthday.split('/')[1] + "-" + user_birthday.split('/')[0];// ('16','10','2017')
+        // console.log('Chưa format: ' + user_birthday);
+        if (user_birthday) {
+            let i = user_birthday.split('/')[2] + "-" + user_birthday.split('/')[1] + "-" + user_birthday.split('/')[0];// ('16','10','2017')
+            user_birthday = moment(i).format('YYYY-MM-DD');
+            // console.log('Đã format:' + moment(i).format('YYYY-MM-DD'));
+        }
 
-        console.log('Đã format:' + moment(i).format('YYYY-MM-DD'));
-        user_birthday = moment(i).format('YYYY-MM-DD');
+        
         Users.update({ user_id }, {
             user_name,
             user_id,
@@ -286,6 +289,7 @@ module.exports = {
             }
         })
     }
+
 
 };
 

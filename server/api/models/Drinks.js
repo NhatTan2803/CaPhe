@@ -11,7 +11,7 @@ module.exports = {
   attributes: {
     // Mã đồ uống
     drink_id: {
-      type: 'string',
+      type: 'integer',
       autoIncrement: true,
       primaryKey: true,
     },

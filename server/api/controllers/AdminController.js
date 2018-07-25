@@ -457,6 +457,7 @@ module.exports = {
     },
     // úp ảnh cho việc tạo tài khoản chủ quán
     Boss_upload_avatar: function (req, res) {
+        console.log('log request', req)
         req.file('avatar').upload({
             dirname: require('path').resolve(sails.config.appPath, 'assets/uploads/imgBoss')
         }, function (err, uploadedFiles) {

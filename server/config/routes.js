@@ -90,7 +90,11 @@ module.exports.routes = {
   'POST /positions/create': 'PositionController.position_create',
   'GET /positions/get': 'PositionController.position_info',
   'DELETE /positions/del': 'PositionController.position_del',
-  'PUT /positions/update': 'PositionController.position_update'
+  'PUT /positions/update': 'PositionController.position_update',
+
+  //Bills Contronller
+  'POST /home/countBillByDay': 'HomeController.Bill_count_by_day',
+  'POST /home/countBillByWeek': 'HomeController.Bill_count_by_week',
 
   /***************************************************************************
   *                                                                          *
