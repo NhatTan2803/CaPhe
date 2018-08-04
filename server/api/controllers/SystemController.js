@@ -8,14 +8,21 @@
 module.exports = {
 	system_create: function (req, res) {
         var system_name = req.param('system_name'),
-            system_address = req.param('system_address')
+            system_address = req.param('system_address'),
+            system_active = req.param('system_active');
         if (!system_name || system_name === '') {
             return res.json({
                 status: 'error',
                 message: 'Bạn chưa nhập tên hệ thống',
             })
         }
-        Systems.create({ system_name,system_address }).exec(function (err, created) {
+        if (!system_address || system_address === '') {
+            return res.json({
+                status: 'error',
+                message: 'Bạn chưa nhập địa chỉ hệ thống',
+            })
+        }
+        Systems.create({ system_name,system_address, system_active }).exec(function (err, created) {
             if (err) { return console.log('error') }
             if (created) {
                 return res.json({
@@ -86,7 +93,8 @@ module.exports = {
     system_update: function (req, res) {
         var system_id = req.param('system_id'),
             system_name = req.param('system_name'),
-            system_address = req.param('system_address')
+            system_address = req.param('system_address'),
+            system_active = req.param('system_active')
 
         if (!system_id || system_id === '') {
             return console.log('Id chưa được nhập')
@@ -95,6 +103,7 @@ module.exports = {
             {
                 system_name: system_name,
                 system_address: system_address,
+                system_active: system_active
             }
             ).exec(function (err, updated) {
                 if (err) { return console.log(err) }

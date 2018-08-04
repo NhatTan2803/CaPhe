@@ -18,8 +18,10 @@ module.exports = {
     },
     position_name:{
       type:'string',
-      
     },
-  
+    position_active: {
+      type: 'string',
+      enum: ["on", "off"]
+    }
   }
 };

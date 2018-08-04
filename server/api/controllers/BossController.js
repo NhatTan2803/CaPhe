@@ -21,7 +21,7 @@ module.exports = {
         user_Idcard = req.param('staff_Idcard');
         user_active = req.param('staff_active')
         //Kiem tra email
-        console.log(user_Idcard)
+        // console.log(user_Idcard)
         if (!user_email || user_email === '') {
             return res.json({
                 status: 'error',
@@ -47,12 +47,12 @@ module.exports = {
             });
         }
 
-        if (!user_Idcard || user_Idcard === '') {
-            return res.json({
-                status: 'error',
-                message: 'Ban chua nhap CMND'
-            });
-        }
+        // if (!user_Idcard || user_Idcard === '') {
+        //     return res.json({
+        //         status: 'error',
+        //         message: 'Ban chua nhap CMND'
+        //     });
+        // }
 
         console.log('Chưa format: ' + user_birthday);
 

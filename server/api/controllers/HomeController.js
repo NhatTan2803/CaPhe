@@ -21,7 +21,7 @@ module.exports = {
                 return res.json({
                     status: 'success',
                     message: 'Thành công',
-                    bill: result,
+                    bill: Object.assign({}, result[0]),
                 })
             }
         })

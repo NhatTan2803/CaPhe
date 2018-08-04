@@ -23,11 +23,16 @@ module.exports = {
                 detail_toalMoney_drink
             }
         ).exec(function (err, create) {
-            if (err) { return console.log(err) }
+            // if (err) { return console.log(err) }
             if (create) {
                 return res.json({
                     status: 'success',
                     detail_bill: create
+                })
+            } else {
+                return res.json({
+                    status: 'error',
+                    message: 'Error'
                 })
             }
         })

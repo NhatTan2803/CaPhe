@@ -16,7 +16,8 @@ module.exports = {
             shop_avatar = req.param('shop_avatar'),
             shop_email = req.param('shop_email'),
             shop_dayFrom = req.param('shop_dayFrom'),
-            shop_dayTo = req.param('shop_dayTo');
+            shop_dayTo = req.param('shop_dayTo'),
+            shop_active = req.param('shop_active');
         // console.log(shop_name,shop_address,shop_phone,shop_avatar);
 
         if (!shop_name || shop_name === '') {
@@ -38,12 +39,12 @@ module.exports = {
                 message: 'Bạn chưa nhập số điện thoại',
             })
         }
-        if (!shop_avatar || shop_avatar === '') {
-            return res.json({
-                status: 'error',
-                message: 'Bạn chưa thêm ảnh cho quán',
-            })
-        }
+        // if (!shop_avatar || shop_avatar === '') {
+        //     return res.json({
+        //         status: 'error',
+        //         message: 'Bạn chưa thêm ảnh cho quán',
+        //     })
+        // }
         if (!shop_email || shop_email === '') {
             return res.json({
                 status: 'error',
@@ -75,7 +76,8 @@ module.exports = {
             shop_phone,
             shop_avatar,
             shop_dayFrom,
-            shop_dayTo
+            shop_dayTo,
+            shop_active
         }).exec(function (err, created) {
             if (err) { return console.log('error') }
             if (created) {
@@ -98,7 +100,8 @@ module.exports = {
             shop_avatar = req.param('shop_avatar'),
             shop_email = req.param('shop_email'),
             shop_dayFrom = req.param('shop_dayFrom'),
-            shop_dayTo = req.param('shop_dayTo');
+            shop_dayTo = req.param('shop_dayTo'),
+            shop_active = req.param('shop_active');
 
         if (!shop_id || shop_id === '') {
             return console.log('Id chưa được nhập')
@@ -117,7 +120,7 @@ module.exports = {
                     shop_phone: shop_phone,
                     shop_avatar: shop_avatar,
                     shop_email: shop_email,
-
+                    shop_active: shop_active
                 }
             ).exec(function (err, updated) {
 
@@ -143,7 +146,8 @@ module.exports = {
                         shop_phone: shop_phone,
                         shop_avatar: shop_avatar,
                         shop_email: shop_email,
-                        shop_dayTo: shop_dayTo
+                        shop_dayTo: shop_dayTo,
+                        shop_active: shop_active,
                     }
                 ).exec(function (err, updated) {
                     if (err) { return console.log(err) }
@@ -167,7 +171,8 @@ module.exports = {
                         shop_phone: shop_phone,
                         shop_avatar: shop_avatar,
                         shop_email: shop_email,
-                        shop_dayFrom: shop_dayFrom
+                        shop_dayFrom: shop_dayFrom,
+                        shop_active: shop_active
                     }).exec(function (err, updated) {
                         if (err) { return console.log('err loi ve from vs to bang rong') }
                         if (updated) {
@@ -200,6 +205,7 @@ module.exports = {
                                 shop_email: shop_email,
                                 shop_dayTo: shop_dayTo,
                                 shop_dayFrom: shop_dayFrom,
+                                shop_active: shop_active
                             }
                         ).exec(function (err, updated) {
 
@@ -219,33 +225,25 @@ module.exports = {
     },
     //Lấy thông tin của quán
     shop_info: function (req, res) {
-        var shop_id = req.param('shop_id'),
-            shop_name = req.param('shop_name'),
-            shop_email = req.param('shop_email'),
-            shop_phone = req.param('shop_phone'),
-            shop_dayFrom = req.param('shop_dayFrom'),
-            shop_dayTo = req.param('shop_dayTo'),
-            shop_address = req.param('shop_address'),
-            shop_avatar = req.param('shop_avatar')
+        var shop_id = req.param('shop_id');
         if (!shop_id || shop_id === '' || shop_id === 0) {
             return res.json({
                 status: 'error',
-                message: 'id không hợp lệ',
+                message: 'ID không hợp lệ',
             })
         }
         Shops.findOne({ shop_id }).exec(function (err, found) {
-            if (err) { return console.log('lỗi server') }
             if (found) {
                 return res.json({
                     status: 'success',
-                    message: 'Lấy thành công thông tin cá nhân',
+                    message: 'Lấy thành thông tin quán',
                     shop: found
                 });
             }
             else {
                 return res.json({
                     status: 'error',
-                    message: 'Không tìm thấy quán có Id này ',
+                    message: 'Không tìm thấy quán có ID này ',
                 });
             }
         });
@@ -355,7 +353,7 @@ module.exports = {
         if (!user_active || user_active === '') {
             return res.json({
                 status: 'error',
-                message: 'Bạn chưa chọn chế độn hoạt động'
+                message: 'Bạn chưa chọn chế độ hoạt động'
             });
         }
         console.log('Chưa format: ' + user_birthday);

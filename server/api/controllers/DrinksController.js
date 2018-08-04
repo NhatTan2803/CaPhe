@@ -29,12 +29,32 @@ module.exports = {
             drink_shop_id = req.param('drink_shop_id'),
             drink_price = req.param('drink_price'),
             drink_avatar = req.param('drink_avatar');
+            drink_active = req.param('drink_active');
+        if (!drink_name || drink_name === '') {
+            return res.json({
+                status: 'error',
+                message: 'Bạn chưa nhập tên đồ uống',
+            })
+        }
+        if (!drink_price || drink_price === '') {
+            return res.json({
+                status: 'error',
+                message: 'Bạn chưa nhập giá đồ uống',
+            })
+        }
+        if (!drink_shop_id || drink_shop_id === '') {
+            return res.json({
+                status: 'error',
+                message: 'Shop không hợp lệ',
+            })
+        }
         Drinks.create(
             {
                 drink_name,
                 drink_shop_id,
                 drink_price,
-                drink_avatar
+                drink_avatar,
+                drink_active
             }
         ).exec(function (err, tao) {
             if (err) {
@@ -54,10 +74,12 @@ module.exports = {
             drink_name = req.param('drink_name'),
             drink_price = req.param('drink_price'),
             drink_avatar = req.param('drink_avatar');
+            drink_active = req.param('drink_active');
         Drinks.update({ drink_id },{
                 drink_name,
                 drink_price,
-                drink_avatar
+                drink_avatar,
+                drink_active
             }).exec(function (err, updated) {
                 if (err) { console.log(err) }
                 if (updated) {

@@ -41,7 +41,11 @@ module.exports = {
     },
     shop_dayTo: {
       type: 'date',
-    }
+    },
+    shop_active: {
+      type: 'string',
+      enum: ["on", "off"]
+    },
   }
 };
 

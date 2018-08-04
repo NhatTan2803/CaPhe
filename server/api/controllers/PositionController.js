@@ -8,7 +8,8 @@
 module.exports = {
 	position_create: function (req, res) {
         var position_name = req.param('position_name'),
-            position_shop_id = req.param('position_shop_id')
+            position_shop_id = req.param('position_shop_id'),
+            position_active = req.param('position_active');
             
         if (!position_name || position_name === '') {
             return res.json({
@@ -16,7 +17,7 @@ module.exports = {
                 message: 'Bạn chưa nhập tên hệ thống',
             })
         }
-        Positions.create({ position_name,position_shop_id }).exec(function (err, created) {
+        Positions.create({ position_name,position_shop_id, position_active }).exec(function (err, created) {
             if (err) { return console.log(err) }
             if (created) {
                 return res.json({
@@ -30,9 +31,11 @@ module.exports = {
     },
     position_del: function(req,res){
         var position_id = req.param('position_id');
-        if(!position_id || position_id ==='')
-        {
-            return console.log('Id chua duoc truyen vao,khong xac dinh doi tuong xoa')
+        if (!position_id || position_id === '') {
+            return res.json({
+                status: 'error',
+                message: 'ID không hợp lệ',
+            })
         }
         Positions.destroy({position_id}).exec(function(err,destroied){
             if(err) {return console.log(err)}
@@ -87,14 +90,25 @@ module.exports = {
     },
     position_update: function (req, res) {
         var position_id = req.param('position_id'),
-            position_name = req.param('position_name')
+            position_name = req.param('position_name'),
+            position_active = req.param('position_active');
 
         if (!position_id || position_id === '') {
-            return console.log('Id chưa được nhập')
+            return res.json({
+                status: 'error',
+                message: 'Id không hợp lệ',
+            })
+        }
+        if (!position_name || position_name === '') {
+            return res.json({
+                status: 'error',
+                message: 'Bạn chưa nhập tên hệ thống',
+            })
         }
         Positions.update({ position_id: position_id },
             {
                 position_name: position_name,
+                position_active: position_active
             }
         ).exec(function (err, updated) {
             if (err) { return console.log(err) }

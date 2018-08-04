@@ -21,6 +21,9 @@ module.exports = {
     // Tổng tiền của hóa đơn
     bill_total: {
       type: 'decimal',
+    },
+    bill_shop_id: {
+      type: 'integer'
     }
     // Tiền nhận từ khách
     // bill_Mreceive: {

@@ -76,6 +76,7 @@ module.exports.routes = {
 
   //Bills Contronller
   'POST /bills/create': 'BillsController.Bill_create',
+  'POST /bills/countBillInvoice': 'BillsController.Bill_count_invoice',
   //Detail_bill Contronller
   'POST /detail-bill/create': 'Detail_billController.detail_bill_create',
   //Drinks Contronller

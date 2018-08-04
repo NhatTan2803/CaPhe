@@ -19,7 +19,11 @@ module.exports = {
     },
     system_address:{
       type:'string',
-    }
+    },
+    system_active: {
+      type: 'string',
+      enum: ["on", "off"]
+    },
   }
 };
 

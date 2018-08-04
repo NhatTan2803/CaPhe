@@ -32,8 +32,10 @@ module.exports = {
       type: 'string',
       size: 100,
     },
-
-
+    drink_active: {
+      type: 'string',
+      enum: ["on", "off"]
+    }
   }
 };
 
