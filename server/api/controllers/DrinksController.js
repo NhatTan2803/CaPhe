@@ -30,6 +30,7 @@ module.exports = {
             drink_price = req.param('drink_price'),
             drink_avatar = req.param('drink_avatar');
             drink_active = req.param('drink_active');
+            drink_eth = req.param('drink_eth');
         if (!drink_name || drink_name === '') {
             return res.json({
                 status: 'error',
@@ -54,7 +55,8 @@ module.exports = {
                 drink_shop_id,
                 drink_price,
                 drink_avatar,
-                drink_active
+                drink_active,
+                drink_eth
             }
         ).exec(function (err, tao) {
             if (err) {
@@ -75,11 +77,13 @@ module.exports = {
             drink_price = req.param('drink_price'),
             drink_avatar = req.param('drink_avatar');
             drink_active = req.param('drink_active');
+            drink_eth = req.param('drink_eth');
         Drinks.update({ drink_id },{
                 drink_name,
                 drink_price,
                 drink_avatar,
-                drink_active
+                drink_active,
+                drink_eth
             }).exec(function (err, updated) {
                 if (err) { console.log(err) }
                 if (updated) {

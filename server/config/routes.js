@@ -96,6 +96,8 @@ module.exports.routes = {
   //Bills Contronller
   'POST /home/countBillByDay': 'HomeController.Bill_count_by_day',
   'POST /home/countBillByWeek': 'HomeController.Bill_count_by_week',
+  'POST /home/countDetailBillByDay': 'HomeController.Detail_Bill_count_by_day',
+
 
   /***************************************************************************
   *                                                                          *
